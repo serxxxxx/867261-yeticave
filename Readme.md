@@ -1,7 +1,7 @@
 # Личный проект «YetiCave»
 
 * Студент: [Сергей Красиков](https://up.htmlacademy.ru/php/6/user/867261).
-* Наставник: `Денис Байдаров`.
+* Наставник: [Денис Байдаров] (https://htmlacademy.ru/profile/4er).
 
 ---
 
