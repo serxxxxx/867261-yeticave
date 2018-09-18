@@ -17,7 +17,7 @@ $tovar = [
     'cost' => 159999,
     'URL' => 'img/lot-2.jpg'
     ],
-   [
+    [
     'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
     'categories' => 'Крепления',
     'cost' => 8000,
@@ -43,6 +43,16 @@ $tovar = [
     ]
     ];
 
+    function format_sum($cost) {
+      $okrugl=ceil($cost);
+      if ($okrugl<1000){
+        return $okrugl ." ₽";
+      }
+      elseif ($okrugl>1000) {
+        $okrugl= number_format($okrugl, 0, ',', ' ');
+        return $okrugl ." ₽";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -121,7 +131,7 @@ $tovar = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$val['cost']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=format_sum($val['cost']); ?><b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
 
