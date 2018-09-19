@@ -4,7 +4,7 @@ $is_auth = rand(0, 1);
 $user_name = ''; // укажите здесь ваше имя
 $user_avatar = 'img/user.jpg';
 $categories = ["Доски и лыжи","Крепления","Ботинки","Одежда","Инструменты","Разное"];
-$tovar = [
+$product = [
     [
     'name' => '2014 Rossignol District Snowboard',
     'categories' => 'Доски и лыжи',
@@ -44,14 +44,15 @@ $tovar = [
     ];
 
     function format_sum($cost) {
-      $okrugl=ceil($cost);
-      if ($okrugl<1000){
-        return $okrugl ." ₽";
+      $round=ceil($cost);
+      if ($round<1000){
+        $output=$round ." ₽";
       }
-      elseif ($okrugl>1000) {
-        $okrugl= number_format($okrugl, 0, ',', ' ');
-        return $okrugl ." ₽";
+      elseif ($round>1000) {
+        $round= number_format($round, 0, ',', ' ');
+        $output=$round ." ₽";
     }
+    return $output;
 }
 ?>
 <!DOCTYPE html>
@@ -120,7 +121,7 @@ $tovar = [
         </div>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
-            <?php foreach ($tovar as $key => $val): ?>
+            <?php foreach ($product as $key => $val): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="" width="350" height="260" alt="">
