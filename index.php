@@ -4,7 +4,7 @@ $is_auth = rand(0, 1);
 $user_name = ''; // укажите здесь ваше имя
 $user_avatar = 'img/user.jpg';
 $categories = ["Доски и лыжи","Крепления","Ботинки","Одежда","Инструменты","Разное"];
-$tovar = [
+$product = [
     [
     'name' => '2014 Rossignol District Snowboard',
     'categories' => 'Доски и лыжи',
@@ -17,7 +17,7 @@ $tovar = [
     'cost' => 159999,
     'URL' => 'img/lot-2.jpg'
     ],
-   [
+    [
     'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
     'categories' => 'Крепления',
     'cost' => 8000,
@@ -43,6 +43,17 @@ $tovar = [
     ]
     ];
 
+    function format_sum($cost) {
+      $round=ceil($cost);
+      if ($round<1000){
+        $output=$round ." ₽";
+      }
+      elseif ($round>1000) {
+        $round= number_format($round, 0, ',', ' ');
+        $output=$round ." ₽";
+    }
+    return $output;
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -110,7 +121,7 @@ $tovar = [
         </div>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
-            <?php foreach ($tovar as $key => $val): ?>
+            <?php foreach ($product as $key => $val): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="" width="350" height="260" alt="">
@@ -121,7 +132,7 @@ $tovar = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$val['cost']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=format_sum($val['cost']); ?><b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
 
