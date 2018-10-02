@@ -54,10 +54,28 @@ $product = [
     }
     return $output;
 }
+
   require_once("functions.php");
-  require_once('templates/layout.php');
-  require_once('templates/index.php');
-//$main="Доска объявлений";
-//$main => 'Доска объявлений',
+
+  function esc($str) {
+  	$text = strip_tags($str);
+
+  	return $text;
+  }
+
+
+
+  $page_content = include_template('index.php', ['categories' => $categories,'product' => $product,]);
+  $layout_content = include_template('layout.php',
+    [
+  	'main' => $page_content,
+    'categories' => $categories,
+  	'title' => "Здесь могла бы быть ваша реклама",
+    'is_auth' => $is_auth
+    ]);
+
+  print($layout_content);
+
+
 
 ?>

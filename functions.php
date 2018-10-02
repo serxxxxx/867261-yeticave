@@ -4,15 +4,15 @@
     $result = '';
 
     if (!file_exists($name)) {
-        return $result;
-    }
+    return $result;
+      }
 
-    ob_start();
-    extract($data);
-    require($name);
+      ob_start();
+      extract($data);
+      require($name);
 
-    $result = ob_get_clean();
+      $result = ob_get_clean();
 
     return $result;
-}
+    }
 ?>

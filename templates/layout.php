@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?=$title;?></title>
+    <title><?=$title; ?></title>
     <link href="css/normalize.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -23,30 +23,29 @@
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
-
-        <?php if ($is_auth): ?>
-          <div class="user-menu__image">
-            <img src="img/user.jpg" width="40" height="40" alt="Пользователь">
-          </div>
-          <div class="user-menu__logged">
-            <p><?php print($is_auth); ?></p>
-          </div>
-        <?php else: ?>
-          <ul class="user-menu__list">
-            <li class="user-menu__item">
-              <a href="#">Регистрация</a>
-            </li>
-            <li class="user-menu__item">
-              <a href="#">Вход</a>
-            </li>
-          </ul>
-        <?php endif; ?>
+        <?php  if ($is_auth): ?>
+            <div class="user-menu__image">
+              <img src="img/user.jpg" width="40" height="40" alt="Пользователь">
+            </div>
+            <div class="user-menu__logged">
+              <p><?php print($is_auth); ?></p>
+            </div>
+          <?php else: ?>
+            <ul class="user-menu__list">
+              <li class="user-menu__item">
+                <a href="#">Регистрация</a>
+              </li>
+              <li class="user-menu__item">
+                <a href="#">Вход</a>
+              </li>
+            </ul>
+          <?php endif;?>
 
         </nav>
     </div>
 </header>
 
-<main class="container">Доска объявлений</main>
+<main class="container"><?=$main; ?></main>
 </div>
 
 <footer class="main-footer">
