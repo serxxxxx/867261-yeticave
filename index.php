@@ -43,35 +43,15 @@ $product = [
     ]
     ];
 
-    function format_sum($cost) {
-      $round=ceil($cost);
-      if ($round<1000){
-        $output=$round ." ₽";
-      }
-      elseif ($round>1000) {
-        $round= number_format($round, 0, ',', ' ');
-        $output=$round ." ₽";
-    }
-    return $output;
-}
-
   require_once("functions.php");
-
-  function esc($str) {
-  	$text = strip_tags($str);
-
-  	return $text;
-  }
-
-
 
   $page_content = include_template('index.php', ['categories' => $categories,'product' => $product,]);
   $layout_content = include_template('layout.php',
     [
-  	'main' => $page_content,
-    'categories' => $categories,
-  	'title' => "Здесь могла бы быть ваша реклама",
-    'is_auth' => $is_auth
+  	   'main' => $page_content,
+       'categories' => $categories,
+  	   'title' => "Интернет-аукцион",
+       'is_auth' => $is_auth
     ]);
 
   print($layout_content);
