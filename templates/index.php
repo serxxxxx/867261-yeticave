@@ -30,7 +30,13 @@
                         <span class="lot__cost"><?=format_sum($val['cost']); ?><b class="rub">р</b></span>
                     </div>
                     <div class="lot__timer timer">
+                      <?
+                      $ts_midnight = strtotime('tomorrow');
+                      $secs_to_midnight = $ts_midnight - time("H:i");
 
+                      $hours = floor($secs_to_midnight / 3600);
+                      $minutes = floor(($secs_to_midnight % 3600) / 60);
+                      print("$hours:$minutes"); ?>
                     </div>
                 </div>
             </div>

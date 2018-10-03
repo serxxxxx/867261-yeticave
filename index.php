@@ -1,6 +1,7 @@
 <?php
 $is_auth = rand(0, 1);
 
+date_default_timezone_set("Europe/Moscow");
 $user_name = ''; // укажите здесь ваше имя
 $user_avatar = 'img/user.jpg';
 $categories = ["Доски и лыжи","Крепления","Ботинки","Одежда","Инструменты","Разное"];
