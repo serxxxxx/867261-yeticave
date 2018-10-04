@@ -30,7 +30,7 @@
                         <span class="lot__cost"><?=format_sum($val['cost']); ?><b class="rub">р</b></span>
                     </div>
                     <div class="lot__timer timer">
-                      <? viewtime($secs_to_midnight) ?>
+                      <? print(viewtime($secs_to_midnight)) ?>
                     </div>
                 </div>
             </div>
