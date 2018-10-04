@@ -16,7 +16,11 @@
     return $result;
     }
 
-
+    function viewtime($secs_to_midnight){
+      $hours = floor($secs_to_midnight / 3600);
+      $minutes = floor(($secs_to_midnight % 3600) / 60);
+      return("$hours:$minutes");
+      }
 
     function format_sum($cost) {
       $round=ceil($cost);
