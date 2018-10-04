@@ -16,7 +16,14 @@
     return $result;
     }
 
-
+    function viewtime(){
+      date_default_timezone_set("Europe/Moscow");
+      $ts_midnight = strtotime('tomorrow');
+      $secs_to_midnight = $ts_midnight - time("H:i");
+      $hours = floor($secs_to_midnight / 3600);
+      $minutes = floor(($secs_to_midnight % 3600) / 60);
+      return("$hours:$minutes");
+      }
 
     function format_sum($cost) {
       $round=ceil($cost);
